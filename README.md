@@ -3,6 +3,15 @@
 
 This repo is used for displaying Carla in a web browser (i.e. Chrome, Safari...) to realize visulization of Carla in a different (or same) machine. 
 
+## Something NEW !!!!
+Yes! I added support for Ubuntu 16.04 with a python3 backend!
+
+Ubuntu 16.04: [python3 backend](https://github.com/mellocolate/carla-display-backend-python) + [frontend]()
+
+Ubuntu 18.04: [c++](https://github.com/mellocolate/carla-display-backend) or [python3](https://github.com/mellocolate/carla-display-backend-python) backend + [frontend]()
+
+Now the this system can be used either on Ubuntu 16.04 with a python3 backend or on Ubuntu 18.04 with a c++ backend or a python3 backend
+
 Currently only compatible with Carla 0.9.6 version
 
 Demo use case from [Wenhao Ding](https://github.com/GilgameshD)
@@ -12,7 +21,9 @@ Demo use case from [Wenhao Ding](https://github.com/GilgameshD)
 
 ## Source Code
 
-[Backend](https://github.com/mellocolate/carla-display-backend)
+[Backend(cpp)](https://github.com/mellocolate/carla-display-backend)
+
+[Backend(python)](https://github.com/mellocolate/carla-display-backend-python)
 
 [Frontend](https://github.com/mellocolate/carla-display-frontend) (Adapted from Uber [streetscape.gl](https://github.com/uber/streetscape.gl))
 
@@ -23,10 +34,31 @@ Demo use case from [Wenhao Ding](https://github.com/GilgameshD)
 
 ## Build
 
+
+
+### Step 1 - Backend Part
+Please choose anyone of the backend. 
+
+Notice: Ubuntu 16.04 can only run python backend
+
+#### Python
+
+Following steps are tested on both Ubuntu 16.04 and Ubuntu 18.04 with Carla 0.9.6
+
+Notice: backend should be launched after the carla simulator has been launched
+```bash
+# install system libs and building utils
+$ sudo apt install -y make gcc g++ libpng16-dev libjpeg-dev libtiff5-dev python3-pip
+
+# install python3 packages
+$ pip3 install numpy easyDict protobuf shapely
+
+# clone the python backend repo
+$ git clone https://github.com/mellocolate/carla-display-backend-python.git
+```
+
+#### C++
 Following building steps are ONLY tested on Ubuntu 18.04 with Carla 0.9.6
-
-backend part (should be in the same machine of the carla simulator)
-
 
 Notice: backend should be launched after the carla simulator has been launched
 ```bash
@@ -56,10 +88,16 @@ $ make platform -j8
 # it will generate the binary program at REPO_ROOT_FOLDER/bin
 ```
 
+To use this system, you MUST build this frontend part
+### Step 2 - Frontend part
+
 In another terminal
 
 frontend part (should be in the same machine of the carla simulator)
 ```bash
+# install make gcc g++
+$ sudo apt install -y make gcc g++
+
 # install nodejs 10.x
 $ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
@@ -85,24 +123,38 @@ $ yarn
 
 ## How to use?
 ```bash
+# Step 1
 # In one terminal
 # go into your compiled carla simulator's folder
 $ cd CARLA_SIMULATOR_PATH
 $ ./CarlaUE4.sh
 
+# Step 2
 # In another terminal
+# the backend should be launched after launching the carla simulator
+
+# YOU MAY CHOOSE THE BACKEND YOU BUILT
+
+# Python backend
+$ cd carla-display-backend-python
+$ python3 backend/main.py
+
+# C++ backend
 # go into the backend folder
 $ cd carla-display-backend
 # to launch the backend, type the following command
-# the backend should be launched after launching the carla simulator
 $ ./bin/platform
 
+
+# Step 3
 # In another terminal
 # go into the frontend folder
 $ cd carla-display-frontend/examples/get-started
 # start frontend 
 $ yarn start-live
 
+
+# Step 4
 # In another terminal
 # run your own python client script
 $ cd CARLA_SIMULATOR_PATH/PythonAPI/examples
@@ -116,3 +168,4 @@ $ python spawn_npc.py
 4. [lvandeve lodepng](https://github.com/lvandeve/lodepng)
 5. [mcrodrigues macro-logger](https://github.com/dmcrodrigues/macro-logger)
 6. [jessey-git fx-gltf](https://github.com/jessey-git/fx-gltf)
+7. [cmpute xviz.py](https://github.com/cmpute/xviz.py)
