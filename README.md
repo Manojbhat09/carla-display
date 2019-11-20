@@ -6,9 +6,9 @@ This repo is used for displaying Carla in a web browser (i.e. Chrome, Safari...)
 ## Something NEW !!!!
 Yes! I added support for Ubuntu 16.04 with a python3 backend!
 
-Ubuntu 16.04: [python3 backend](https://github.com/mellocolate/carla-display-backend-python) + [frontend]()
+Ubuntu 16.04: [python3 backend](https://github.com/mellocolate/carla-display-backend-python) + [frontend](https://github.com/mellocolate/carla-display-frontend)
 
-Ubuntu 18.04: [c++](https://github.com/mellocolate/carla-display-backend) or [python3](https://github.com/mellocolate/carla-display-backend-python) backend + [frontend]()
+Ubuntu 18.04: [c++](https://github.com/mellocolate/carla-display-backend) or [python3](https://github.com/mellocolate/carla-display-backend-python) backend + [frontend](https://github.com/mellocolate/carla-display-frontend)
 
 Now the this system can be used either on Ubuntu 16.04 with a python3 backend or on Ubuntu 18.04 with a c++ backend or a python3 backend
 
