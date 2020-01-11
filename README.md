@@ -3,7 +3,20 @@
 
 This repo is used for displaying Carla in a web browser (i.e. Chrome, Safari...) to realize visulization of Carla in a different (or same) machine. 
 
-## Something NEW !!!!
+## UPDATES !!!!
+
+#### [01/10/2020]
+
+I changed some codes in a backend branch (currently not merged into backend's master) using my xviz cpp library. Please check following codes for more information if you want to have a try.
+
+Note: If you are new to this repo OR you do not have Protobuf 3.11.0+ installed, please just ignore this update and don't try it.
+
+1. New cpp backend with xviz cpp library. Please check out to branch ["test_new_xviz_lib"](https://github.com/mellocolate/carla-display-backend/tree/test_new_xviz_lib) if you want to have a try.
+2. XVIZ Cpp implementation library [xviz](https://github.com/wx9698/xviz)
+
+ 
+#### [11/20/2019]
+
 Yes! I added support for Ubuntu 16.04 with a python3 backend!
 
 Ubuntu 16.04: [python3 backend](https://github.com/mellocolate/carla-display-backend-python) + [frontend](https://github.com/mellocolate/carla-display-frontend)
@@ -168,4 +181,5 @@ $ python spawn_npc.py
 4. [lvandeve lodepng](https://github.com/lvandeve/lodepng)
 5. [mcrodrigues macro-logger](https://github.com/dmcrodrigues/macro-logger)
 6. [jessey-git fx-gltf](https://github.com/jessey-git/fx-gltf)
-7. [cmpute xviz.py](https://github.com/cmpute/xviz.py)
+7. [Minjun Xu xviz](https://github.com/wx9698/xviz)
+8. [cmpute xviz.py](https://github.com/cmpute/xviz.py)
