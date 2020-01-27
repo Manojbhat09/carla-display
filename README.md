@@ -125,8 +125,7 @@ $ git clone https://github.com/mellocolate/carla-display-frontend.git
 
 # install dependencies
 $ cd carla-display-frontend
-$ yarn bootstrap
-$ cd examples/get-started
+$ yarn add streetscape.gl
 $ yarn
 
 # optional steps need to be done if you want to visualize a carla simulator on the cloud
@@ -162,7 +161,7 @@ $ ./bin/platform
 # Step 3
 # In another terminal
 # go into the frontend folder
-$ cd carla-display-frontend/examples/get-started
+$ cd carla-display-frontend
 # start frontend 
 $ yarn start-live
 
@@ -181,5 +180,5 @@ $ python spawn_npc.py
 4. [lvandeve lodepng](https://github.com/lvandeve/lodepng)
 5. [mcrodrigues macro-logger](https://github.com/dmcrodrigues/macro-logger)
 6. [jessey-git fx-gltf](https://github.com/jessey-git/fx-gltf)
-7. [Minjun Xu xviz](https://github.com/wx9698/xviz)
+7. [mjxu96 xviz](https://github.com/wx9698/xviz)
 8. [cmpute xviz.py](https://github.com/cmpute/xviz.py)
