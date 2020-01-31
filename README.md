@@ -5,6 +5,10 @@ This repo is used for displaying Carla in a web browser (i.e. Chrome, Safari...)
 
 ## UPDATES !!!!
 
+#### [01/31/2020]
+
+Now you can use docker to run the backend along with frontend. Please refer this [instruction](#docker).
+
 #### [01/10/2020]
 
 I changed some codes in a backend branch (currently not merged into backend's master) using my xviz cpp library. Please check following codes for more information if you want to have a try.
@@ -45,9 +49,37 @@ Demo use case from [Wenhao Ding](https://github.com/GilgameshD)
 2. Draw something (i.e. trajectories) in the web browser.
 3. TBD
 
+## <a name="docker"></a> Docker
+
+If you don't want to build yourself, trying to use a container is a good choice.
+
+And both Ubuntu 16 and Ubuntu 18 can use program in the container.
+
+```bash
+# first pull the docker file, you may need sudo
+docker pull mellocolate/carla-display:0.9.6
+
+# run your carla server
+cd CARLA_SIMULATOR_PATH
+./CarlaUE4.sh
+
+# then in another terminal run container
+# NOTICE: if you are running carla server and this container remotely in the cloud, please replace
+# CARLA_DISPLAY_HOST_IP=localhost with CARLA_DISPLAY_HOST_IP=YOUR_REMOTE_MACHINE_PUBLIC_IP
+docker run -it --network="host" -e CARLA_DISPLAY_HOST_IP=localhost mellocolate/carla-display:0.9.6
+
+# then you can type "0.0.0.0:8080" or "YOUR_REMOTE_MACHINE_PUBLIC_IP:8080" in your browser
+# to see the display if your browser is not prompted automatically.
+
+# NOTICE: before you terminate the container, remember first to terminate all your python scripts.
+
+```
+
+---------------------------------------------------
+---------------------------------------------------
+---------------------------------------------------
+
 ## Build
-
-
 
 ### Step 1 - Backend Part
 Please choose anyone of the backend. 
@@ -125,12 +157,8 @@ $ git clone https://github.com/mellocolate/carla-display-frontend.git
 
 # install dependencies
 $ cd carla-display-frontend
-$ yarn add streetscape.gl
 $ yarn
 
-# optional steps need to be done if you want to visualize a carla simulator on the cloud
-# if you are using all these programs in a local machine, just ignore the following step
-# if you are running this frontend in a cloud machine, please replace the serverUrl of 'localhost:8081' with 'YOUR_CLOUD_MACHINE_PUBLIC_IP:8081' in src/log-from-live.js
 ```
 
 ## How to use?
@@ -163,7 +191,12 @@ $ ./bin/platform
 # go into the frontend folder
 $ cd carla-display-frontend
 # start frontend 
+# if you are using these carla, backend and frontend remotely in the cloud,
+# please set env variable CARLA_DISPLAY_HOST_IP to YOUR_REMOTE_MACHINE_PUBLIC_IP
+# before running yarn start-live
 $ yarn start-live
+# open your browser and type "0.0.0.0:8080" if you are running all these locally.
+# or "YOUR_REMOTE_MACHINE_PUBLIC_IP:8080" if you are running all these remotely.
 
 
 # Step 4
