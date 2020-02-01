@@ -7,16 +7,17 @@ This repo is used for displaying Carla in a web browser (i.e. Chrome, Safari...)
 
 #### [01/31/2020]
 
-Now you can use docker to run the backend along with frontend. Please refer this [instruction](#docker).
+Now you can use docker to run the backend along with frontend. Please refer this [instruction](#docker). Since container has been provided, all newest features like new xviz lib will be merged into master.
 
 #### [01/10/2020]
+Since container has been provided, all newest features like new xviz lib will be merged into master.
 
-I changed some codes in a backend branch (currently not merged into backend's master) using my xviz cpp library. Please check following codes for more information if you want to have a try.
+~~I changed some codes in a backend branch (currently not merged into backend's master) using my xviz cpp library. Please check following codes for more information if you want to have a try.~~
 
-Note: If you are new to this repo OR you do not have Protobuf 3.11.0+ installed, please just ignore this update and don't try it.
+~~Note: If you are new to this repo OR you do not have Protobuf 3.11.0+ installed, please just ignore this update and don't try it.~~
 
-1. New cpp backend with xviz cpp library. Please check out to branch ["test_new_xviz_lib"](https://github.com/mellocolate/carla-display-backend/tree/test_new_xviz_lib) if you want to have a try.
-2. XVIZ Cpp implementation library [xviz](https://github.com/wx9698/xviz)
+~~1. New cpp backend with xviz cpp library. Please check out to branch ["test_new_xviz_lib"](https://github.com/mellocolate/carla-display-backend/tree/test_new_xviz_lib) if you want to have a try.~~
+~~2. XVIZ Cpp implementation library [xviz](https://github.com/wx9698/xviz)~~
 
  
 #### [11/20/2019]
@@ -51,7 +52,7 @@ Demo use case from [Wenhao Ding](https://github.com/GilgameshD)
 
 ## <a name="docker"></a> Docker
 
-If you don't want to build yourself, trying to use a container is a good choice.
+If you don't want to build yourself, using a container is a good choice.
 
 And both Ubuntu 16 and Ubuntu 18 can use program in the container.
 
@@ -71,6 +72,10 @@ docker run -it --network="host" -e CARLA_DISPLAY_HOST_IP=localhost mellocolate/c
 # then you can type "0.0.0.0:8080" or "YOUR_REMOTE_MACHINE_PUBLIC_IP:8080" in your browser
 # to see the display if your browser is not prompted automatically.
 
+# now you can run your own python client to see what will happen in the browser!
+cd CARLA_SIMULATOR_PATH/PythonAPI/examples
+python3 spawn_npc.py
+
 # NOTICE: before you terminate the container, remember first to terminate all your python scripts.
 
 ```
@@ -78,6 +83,10 @@ docker run -it --network="host" -e CARLA_DISPLAY_HOST_IP=localhost mellocolate/c
 ---------------------------------------------------
 ---------------------------------------------------
 ---------------------------------------------------
+
+## Prerequisites
+
+Please refer this [instruction](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md) to install protobuf (>3.10.0)
 
 ## Build
 
